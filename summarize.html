@@ -1,0 +1,31 @@
+<html>
+    <title>revision</title>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+           <a href="second.html">
+          <button>previous</button>  
+        </a>
+        <h1>Summary Page</h1>
+
+<textarea id="summaryInput" rows="30" cols="70" placeholder="Paste your content to summarize..."></textarea><br><br>
+
+<button onclick="generateSummary()">Generate Summary</button>
+
+<h3>Summary Output:</h3>
+<p id="output"></p>
+
+<script>
+function generateSummary() {
+    let text = document.getElementById("summaryInput").value;
+
+    // For now we will show a short version (mock summary)
+    document.getElementById("output").innerHTML =
+        text.substring(0, 80) + "... (summary)";
+}
+</script>
+        </body>
+</html>

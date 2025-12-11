@@ -1,0 +1,28 @@
+<html>
+    <title>revision</title>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+           <a href="second.html">
+          <button>previous</button>  
+        </a>
+        <h1>Revision Page</h1>
+
+<textarea id="notes" rows="30" cols="70" placeholder="Write your revision notes here..."></textarea><br><br>
+
+<button onclick="saveNotes()">Save Notes</button>
+
+<p id="msg"></p>
+
+<script>
+function saveNotes() {
+    let text = document.getElementById("notes").value;
+    localStorage.setItem("revision_notes", text);
+    document.getElementById("msg").innerHTML = "Notes saved!";
+}
+</script>
+        </body>
+</html>
