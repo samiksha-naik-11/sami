@@ -1,0 +1,73 @@
+.cards {
+    display: flex;
+    gap: 20px;
+}
+@media (max-width: 768px) {
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box input {
+        width: 90%;
+    }
+
+    .quick-actions {
+        flex-direction: column;
+    }
+
+    .progress-bar {
+        width: 90%;
+    }
+}
+.counter-section {
+    background: white;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#counter {
+    font-size: 64px;
+    color: #0984e3;
+    margin-bottom: 10px;
+}
+
+.counter-section input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.counter-section button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #00b894;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 📱 Tablet */
+@media (max-width: 768px) {
+    #counter {
+        font-size: 48px;
+    }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+    #counter {
+        font-size: 36px;
+    }
+
+    .counter-section input {
+        width: 100%;
+    }
+}

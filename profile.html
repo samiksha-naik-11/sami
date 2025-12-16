@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Profile Page</title>
+    <link rel="stylesheet" href="profile.css">
+
 </head>
 <body>
 
@@ -45,6 +47,18 @@ function updateProfile() {
     document.getElementById("msg").innerHTML = "Profile updated successfully!";
 }
 </script>
+<section class="counter-section">
+
+    <h2 id="counter">0</h2>
+    <p>Topics Completed</p>
+
+    <input type="number" id="targetInput" placeholder="Enter target" />
+    <button onclick="startCounter()">Start</button>
+
+</section>
+
+
+
 
 </body>
 </html>

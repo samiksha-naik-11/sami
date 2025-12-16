@@ -18,6 +18,78 @@
                         justify-content: space-between;
                         align-items: center;
                     }
+                    .highlight-box {
+    background: #ffeaa7;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #fdcb6e;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 5px #fdcb6e; }
+    to { box-shadow: 0 0 20px #fdcb6e; }
+}
+.cards-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.cards-section h2 {
+    margin-bottom: 30px;
+}
+
+/* Container */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Card */
+.hover-card {
+    background: white;
+    width: 220px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.hover-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+/* Text */
+.hover-card h3 {
+    margin-bottom: 10px;
+}
+
+/* 📱 Tablet */
+@media (max-width: 768px) {
+    .hover-card {
+        width: 45%;
+    }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hover-card {
+        width: 90%;
+    }
+}
+
+
         </style>
     </head>
     <body>
@@ -30,6 +102,43 @@
         <li><a href="profile.html">profile</a></li>
     </ul>
 </nav>
+ <section class="welcome">
+        <h1>Welcome to Your Revision Space</h1>
+        <p>Organize, summarize and revise smarter</p>
+    </section>
+    <section class="motivation">
+    <p>“Small revision every day leads to big success.”</p>
+</section>
+<div class="highlight-box">
+    📌 Highlight of the Day: Stack follows LIFO
+</div>
+<section class="cards-section">
+    <h2>Explore Features</h2>
+
+    <div class="cards-container">
+
+        <div class="hover-card">
+            <h3>📘 Revision</h3>
+            <p>Revise important topics quickly. so that you can get a quick revision in 5 min</p>
+        </div>
+
+        <div class="hover-card">
+            <h3>📝 Summary</h3>
+            <p>Short notes for fast understanding. which saves your  precious time</p>
+        </div>
+
+        <div class="hover-card">
+            <h3>✨ Highlights</h3>
+            <p>Key points at a glance. imprtant pointys can be added over here</p>
+        </div>
+
+        <div class="hover-card">
+            <h3>👤 Profile</h3>
+            <p>View and update your details.you can check your progress as well as user info</p>
+        </div>
+
+    </div>
+</section>
 
     </body>
     
