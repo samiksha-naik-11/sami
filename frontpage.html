@@ -1,63 +1,76 @@
+<!DOCTYPE html>
 <html>
+<head>
     <title>Welcome</title>
-    <head>
-        <style>
-            .headd
-            {
-                background-color: rgb(151, 172, 14);
-                text-align: center;
-            }
-            .card {
-                    width: 300px;
-                    padding: 20px;
-                    background-color:azure;
-                    border-radius: 10px;
-                    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-                    margin: 50px auto;   /* Centers the card */
-                }
 
-            .card button {
-                            padding: 10px 20px;
-                            border: none;
-                            background: #007bff;
-                            color: white;
-                            border-radius: 5px;
-                            cursor: pointer;
-                        }
-        </style>
-    </head>
-    <body>
-        <h1 class="headd">Create your profile</h1>
-        <div class="card">
-        <h4>Name:</h4><br>
-        <input type="text" name="Name" placeholder="-----Enter----------">
-       
-        <h4>course:</h4>
-         <input type="text" name="course" placeholder="----Enter--------">
-        <h4>year:</h4>
-         <input type="number" name="year" placeholder="------Enter---------">
-        <h4>DOB:</h4>
-         <input type="date" name="DOB" placeholder="DD/MM/YYYY">
-        <h4>No of subjects:</h4>
-         <input type="number" name="No of subjects" placeholder="------Enter---------"><br>
-    
-    <a href="second.html">
-    <button class="btn"> Submit</button>
-    <button onclick="saveData()">Save & Go to Profile</button>
-    </a>
+    <style>
+        .headd {
+            background-color: rgb(151, 172, 14);
+            text-align: center;
+        }
+        .card {
+            width: 300px;
+            padding: 20px;
+            background-color: azure;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 50px auto;
+        }
+        .card button {
+            padding: 10px 20px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1 class="headd">Create your profile</h1>
+
+<div class="card">
+    <h4>Name:</h4>
+    <input id="name" type="text" placeholder="Enter name">
+
+    <h4>Course:</h4>
+    <input id="course" type="text" placeholder="Enter course">
+
+    <h4>Year:</h4>
+    <input id="year" type="number" placeholder="Enter year">
+
+    <h4>DOB:</h4>
+    <input id="dob" type="date">
+
+    <h4>No of subjects:</h4>
+    <input id="subjects" type="number" placeholder="Enter number">
+
+    <br><br>
+    <button onclick="saveData()">Save & Submit</button>
 </div>
-
 
 <script>
 function saveData() {
-    localStorage.setItem("Name", document.getElementById("Name").value);
-    localStorage.setItem("course", document.getElementById("course").value);
-    localStorage.setItem("year", document.getElementById("year").value);
-      localStorage.setItem("DOB", document.getElementById("DOB").value);
-        localStorage.setItem("No of subjects", document.getElementById("No of subjects").value);
-    window.location.href = "profile.html";
+    fetch("http://localhost:18080/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: document.getElementById("name").value,
+            course: document.getElementById("course").value,
+            year: document.getElementById("year").value,
+            dob: document.getElementById("dob").value,
+            subjects: document.getElementById("subjects").value
+        })
+    })
+    .then(response => response.text())
+    .then(data => alert(data))
+    .catch(err => alert("Backend not running ❌"));
 }
 </script>
 
-    </body>
+</body>
 </html>
