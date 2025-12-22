@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Revision Highlights</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #3f51b5;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #303f9f;
+        }
+
+        .previous-btn {
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            resize: none;
+        }
+
+        h3 {
+            color: #e91e63;
+            margin-top: 25px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f1f8e9;
+            border-left: 6px solid #8bc34a;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .add-btn {
+            margin-top: 15px;
+            background-color: #e91e63;
+        }
+
+        .add-btn:hover {
+            background-color: #c2185b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <a href="second.html">
+            <button class="previous-btn">← Previous</button>
+        </a>
+
+        <h1>Highlights Page</h1>
+
+        <textarea id="highlightText" rows="8" placeholder="Write important points..."></textarea><br><br>
+
+        <button class="add-btn" onclick="addHighlight()">Add Highlight</button>
+
+        <h3>Your Highlights:</h3>
+        <ul id="list"></ul>
+
+    </div>
+
+    <script>
+        function addHighlight() {
+            let text = document.getElementById("highlightText").value;
+
+            if (text.trim() === "") {
+                alert("Please write something!");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.innerText = text;
+
+            document.getElementById("list").appendChild(li);
+            document.getElementById("highlightText").value = "";
+        }
+    </script>
+</body>
+</html>

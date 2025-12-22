@@ -1,0 +1,12 @@
+Name: likhitha
+Course: be
+Year: 2025
+DOB: 2006-02-20
+Subjects: 2
+------------------
+Name: samiksha
+Course: B.E
+Year: 2024
+DOB: 2006-05-14
+Subjects: 5
+------------------

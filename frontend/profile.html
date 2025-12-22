@@ -1,0 +1,265 @@
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+    <h1>Your Profile</h1>
+
+    <!-- Save to backend (C++ via Node) -->
+    <input type="text" id="name" placeholder="Enter your name" />
+    <button onclick="saveProfile()">Save</button>
+
+    <br><br>
+
+    <a href="second.html">
+        <button>Previous</button>
+    </a>
+
+    <hr>
+
+    <!-- Local profile form -->
+    <label>Name:</label><br>
+    <input type="text" id="Name"><br><br>
+
+    <label>Course:</label><br>
+    <input type="text" id="course"><br><br>
+
+    <label>Year:</label><br>
+    <input type="text" id="year"><br><br>
+
+    <label>Date of Birth:</label><br>
+    <input type="date" id="DOB"><br><br>
+
+    <label>No of subjects:</label><br>
+    <input type="number" id="subjects"><br><br>
+
+    <button onclick="updateProfile()">Update Profile</button>
+
+    <p id="msg" style="color: green;"></p>
+
+    <hr>
+
+    <!-- Counter section -->
+    <section class="counter-section">
+        <h2 id="counter">0</h2>
+        <p>Topics Completed</p>
+
+        <input type="number" id="targetInput" placeholder="Enter target" />
+        <button onclick="startCounter()">Start</button>
+    </section>
+
+    <!-- Inline JS (localStorage logic) -->
+    <script>
+        window.onload = function () {
+            document.getElementById("Name").value = localStorage.getItem("Name") || "";
+            document.getElementById("course").value = localStorage.getItem("course") || "";
+            document.getElementById("year").value = localStorage.getItem("year") || "";
+            document.getElementById("DOB").value = localStorage.getItem("DOB") || "";
+            document.getElementById("subjects").value = localStorage.getItem("subjects") || "";
+        };
+
+        function updateProfile() {
+            localStorage.setItem("Name", document.getElementById("Name").value);
+            localStorage.setItem("course", document.getElementById("course").value);
+            localStorage.setItem("year", document.getElementById("year").value);
+            localStorage.setItem("DOB", document.getElementById("DOB").value);
+            localStorage.setItem("subjects", document.getElementById("subjects").value);
+
+            document.getElementById("msg").innerText = "Profile updated successfully!";
+        }
+    </script>
+
+    <!-- External JS -->
+    <script src="progress.js"></script>
+
+</body>
+</html> */
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #0ab3c9, #a6c1ee);
+            margin: 0;
+            padding: 20px;
+            color: #9af40a;
+        }
+
+        /* Headings */
+        h1, h2 {
+            color: #013b72;
+            text-align: center;
+        }
+
+        /* Inputs */
+        input[type="text"], input[type="number"], input[type="date"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 8px 12px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 2px solid #4a148c;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus {
+            border-color: #ff6f61;
+            box-shadow: 0 0 10px #ff6f61;
+        }
+
+        /* Buttons */
+        button {
+            padding: 10px 20px;
+            background: linear-gradient(to right, #ff6f61, #ffca28);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Message styling */
+        #msg {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Sections */
+        .counter-section {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Counter number */
+        #counter {
+            font-size: 48px;
+            color: #ff6f61;
+            margin-bottom: 10px;
+        }
+
+        /* Links */
+        a {
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            input[type="text"], input[type="number"], input[type="date"] {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Your Profile</h1>
+
+    <!-- Save to backend (C++ via Node) -->
+    <input type="text" id="name" placeholder="Enter your name" />
+    <button onclick="saveProfile()">Save</button>
+
+    <br><br>
+
+    <a href="second.html">
+        <button>Previous</button>
+    </a>
+
+    <hr>
+
+    <!-- Local profile form -->
+    <label>Name:</label><br>
+    <input type="text" id="Name"><br><br>
+
+    <label>Course:</label><br>
+    <input type="text" id="course"><br><br>
+
+    <label>Year:</label><br>
+    <input type="text" id="year"><br><br>
+
+    <label>Date of Birth:</label><br>
+    <input type="date" id="DOB"><br><br>
+
+    <label>No of subjects:</label><br>
+    <input type="number" id="subjects"><br><br>
+
+    <button onclick="updateProfile()">Update Profile</button>
+
+    <p id="msg" style="color: green;"></p>
+
+    <hr>
+
+    <!-- Counter section -->
+    <section class="counter-section">
+        <h2 id="counter">0</h2>
+        <p>Topics Completed</p>
+
+        <input type="number" id="targetInput" placeholder="Enter target" />
+        <button onclick="startCounter()">Start</button>
+    </section>
+
+    <!-- Inline JS (localStorage logic) -->
+    <script>
+        window.onload = function () {
+            document.getElementById("Name").value = localStorage.getItem("Name") || "";
+            document.getElementById("course").value = localStorage.getItem("course") || "";
+            document.getElementById("year").value = localStorage.getItem("year") || "";
+            document.getElementById("DOB").value = localStorage.getItem("DOB") || "";
+            document.getElementById("subjects").value = localStorage.getItem("subjects") || "";
+        };
+
+        function updateProfile() {
+            localStorage.setItem("Name", document.getElementById("Name").value);
+            localStorage.setItem("course", document.getElementById("course").value);
+            localStorage.setItem("year", document.getElementById("year").value);
+            localStorage.setItem("DOB", document.getElementById("DOB").value);
+            localStorage.setItem("subjects", document.getElementById("subjects").value);
+
+            document.getElementById("msg").innerText = "Profile updated successfully!";
+        }
+
+        // Simple counter logic
+        function startCounter() {
+            const target = parseInt(document.getElementById("targetInput").value);
+            let count = 0;
+            const counterElem = document.getElementById("counter");
+
+            const interval = setInterval(() => {
+                if (count >= target) {
+                    clearInterval(interval);
+                } else {
+                    count++;
+                    counterElem.innerText = count;
+                }
+            }, 200);
+        }
+    </script>
+
+</body>
+</html>
+

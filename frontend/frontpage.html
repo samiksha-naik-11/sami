@@ -1,0 +1,84 @@
+<html>
+    <title>Welcome</title>
+    <head>
+        <style>
+            .headd
+            {
+                background-color: rgb(151, 172, 14);
+                text-align: center;
+            }
+            .card {
+                    width: 300px;
+                    padding: 20px;
+                    background-color:azure;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                    margin: 50px auto;   /* Centers the card */
+                }
+
+            .card button {
+                            padding: 10px 20px;
+                            border: none;
+                            background: #007bff;
+                            color: white;
+                            border-radius: 5px;
+                            cursor: pointer;
+                        }
+        </style>
+    </head>
+
+<body>
+
+    <h1 class="headd">Create Your Profile</h1>
+
+    <div class="card">
+
+        <h4>Name:</h4>
+        <input type="text" id="Name" placeholder="Enter Name">
+
+        <h4>Course:</h4>
+        <input type="text" id="course" placeholder="Enter Course">
+
+        <h4>Year:</h4>
+        <input type="number" id="year" placeholder="Enter Year">
+
+        <h4>Date of Birth:</h4>
+        <input type="date" id="DOB">
+
+        <h4>No of Subjects:</h4>
+        <input type="number" id="subjects" placeholder="Enter Number">
+
+        <button onclick="saveData()">Save & Go to Profile</button>
+
+    </div>
+
+    <script>
+        function saveData() {
+
+            fetch("http://localhost:3000/saveProfile", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: document.getElementById("Name").value,
+                    course: document.getElementById("course").value,
+                    year: document.getElementById("year").value,
+                    dob: document.getElementById("DOB").value,
+                    subjects: document.getElementById("subjects").value
+                })
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                window.location.href = "profile.html";
+            })
+            .catch(error => {
+                alert("Backend not running!");
+            });
+        }
+    </script>
+
+
+    </body>
+</html>
