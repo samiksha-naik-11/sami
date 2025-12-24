@@ -7,6 +7,18 @@ Subjects: 2
 Name: samiksha
 Course: B.E
 Year: 2024
-DOB: 2006-05-14
+DOB: 2006-05-11
 Subjects: 5
+------------------
+Name: sejal
+Course: BE
+Year: 2024
+DOB: 2006-04-24
+Subjects: 5
+------------------
+Name: hii
+Course: me
+Year: 2050
+DOB: 2025-12-09
+Subjects: 0
 ------------------

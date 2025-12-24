@@ -4,30 +4,34 @@
         <style>
             .headd
             {
-                background-color: rgb(151, 172, 14);
+                background-color: rgb(121, 227, 228);
                 text-align: center;
+                
             }
             .card {
                     width: 300px;
                     padding: 20px;
-                    background-color:azure;
-                    border-radius: 10px;
+                    background: linear-gradient(to right, #efc2db, #de4eb0);
+                    border-color: black;
+                    
+                    border-radius: 20px;
                     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-                    margin: 50px auto;   /* Centers the card */
+                    margin: 50px auto;   
                 }
 
             .card button {
                             padding: 10px 20px;
                             border: none;
                             background: #007bff;
-                            color: white;
+                            margin-top: 10px;
+                            color: rgb(209, 241, 175);
                             border-radius: 5px;
                             cursor: pointer;
                         }
         </style>
     </head>
 
-<body>
+<body style="background-color: #c293f8;">
 
     <h1 class="headd">Create Your Profile</h1>
 
@@ -48,7 +52,7 @@
         <h4>No of Subjects:</h4>
         <input type="number" id="subjects" placeholder="Enter Number">
 
-        <button onclick="saveData()">Save & Go to Profile</button>
+        <button  onclick="saveData()">Save & Go to Profile</button>
 
     </div>
 
@@ -77,8 +81,6 @@
                 alert("Backend not running!");
             });
         }
-    </script>
-
-
-    </body>
+ </script>
+ </body>
 </html>
